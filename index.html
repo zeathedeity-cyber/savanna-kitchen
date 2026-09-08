@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Savanna Kitchen | African Cuisine</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+    line-height: 1.6;
+}
+
+
+/* NAVBAR */
+
+header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 25px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #d6a84f;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #d6a84f;
+}
+
+.nav-button {
+    background: #d6a84f;
+    color: #111;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 120px 10%;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.65),
+            rgba(0,0,0,0.65)
+        ),
+        url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=80");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.small-title {
+    color: #d6a84f;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 100px);
+    line-height: 0.95;
+    margin-bottom: 30px;
+}
+
+.hero-text {
+    max-width: 500px;
+    font-size: 18px;
+    color: #ddd;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.primary-button {
+    background: #d6a84f;
+    color: #111;
+}
+
+.secondary-button {
+    border: 1px solid white;
+    color: white;
+}
+
+
+/* GENERAL SECTIONS */
+
+.menu-section,
+.reservation-section,
+.contact-section {
+    padding: 100px 10%;
+}
+
+.section-heading {
+    max-width: 650px;
+    margin-bottom: 60px;
+}
+
+.section-heading h2,
+.about-content h2,
+.contact-section h2 {
+    font-size: clamp(40px, 6vw, 70px);
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+
+/* MENU */
+
+.menu-section {
+    background: #181818;
+}
+
+.menu-grid {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.menu-card {
+    background: #222;
+    padding: 35px;
+
+    border: 1px solid #333;
+
+    transition: 0.3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    border-color: #d6a84f;
+}
+
+.food-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.menu-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.menu-card p {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.menu-card strong {
+    color: #d6a84f;
+    font-size: 20px;
+}
+
+
+/* ABOUT */
+
+.about-section {
+    min-height: 600px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 100px 10%;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.65),
+            rgba(0,0,0,0.65)
+        ),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=80");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.about-content {
+    max-width: 650px;
+}
+
+.about-content p:not(.small-title) {
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+
+/* RESERVATION */
+
+.reservation-section {
+    background: #181818;
+}
+
+form {
+    max-width: 700px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+form input,
+form select,
+form button {
+    padding: 17px;
+
+    border: none;
+
+    font-size: 15px;
+}
+
+form input,
+form select {
+    background: #292929;
+    color: white;
+}
+
+form button {
+    grid-column: 1 / -1;
+
+    background: #d6a84f;
+    color: #111;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+form button:hover {
+    opacity: 0.85;
+}
+
+
+/* CONTACT */
+
+.contact-section {
+    background: #111;
+}
+
+.contact-section p {
+    color: #ccc;
+    margin: 20px 0;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 40px 10%;
+
+    border-top: 1px solid #333;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+footer p {
+    color: #777;
+}
+
+
+/* WHATSAPP */
+
+.whatsapp {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #25D366;
+
+    border-radius: 50%;
+
+    font-size: 28px;
+
+    text-decoration: none;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+
+    z-index: 100;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .navbar {
+        padding: 20px;
+    }
+
+    .hero {
+        padding: 120px 25px 80px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    form button {
+        grid-column: auto;
+    }
+
+    .menu-section,
+    .reservation-section,
+    .contact-section {
+        padding: 70px 25px;
+    }
+
+    footer {
+        padding: 35px 25px;
+    }
+
+}</style>
+
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                SAVANNA <span>KITCHEN</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <a href="#reservation" class="nav-button">
+                Book a Table
+            </a>
+
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                AUTHENTIC AFRICAN CUISINE
+            </p>
+
+            <h1>
+                Taste the soul<br>
+                of Africa.
+            </h1>
+
+            <p class="hero-text">
+                Fresh ingredients, bold flavours and unforgettable
+                dining experiences made with love.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#menu" class="primary-button">
+                    View Our Menu
+                </a>
+
+                <a href="#reservation" class="secondary-button">
+                    Reserve a Table
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MENU -->
+    <section id="menu" class="menu-section">
+
+        <div class="section-heading">
+
+            <p class="small-title">
+                OUR MENU
+            </p>
+
+            <h2>
+                Made fresh.<br>
+                Served with soul.
+            </h2>
+
+            <p>
+                A selection of our favourite dishes inspired by
+                the flavours of Africa.
+            </p>
+
+        </div>
+
+
+        <div class="menu-grid">
+
+            <div class="menu-card">
+
+                <div class="food-icon">🍗</div>
+
+                <h3>Peri-Peri Chicken</h3>
+
+                <p>
+                    Flame-grilled chicken marinated in our
+                    signature peri-peri sauce.
+                </p>
+
+                <strong>R145</strong>
+
+            </div>
+
+
+            <div class="menu-card">
+
+                <div class="food-icon">🥩</div>
+
+                <h3>Beef Short Ribs</h3>
+
+                <p>
+                    Slow-cooked beef ribs served with
+                    seasonal vegetables.
+                </p>
+
+                <strong>R185</strong>
+
+            </div>
+
+
+            <div class="menu-card">
+
+                <div class="food-icon">🍛</div>
+
+                <h3>Butter Chicken</h3>
+
+                <p>
+                    Creamy Indian-inspired curry with
+                    aromatic spices and rice.
+                </p>
+
+                <strong>R155</strong>
+
+            </div>
+
+
+            <div class="menu-card">
+
+                <div class="food-icon">🥗</div>
+
+                <h3>Harvest Bowl</h3>
+
+                <p>
+                    Fresh vegetables, grains, avocado and
+                    our house dressing.
+                </p>
+
+                <strong>R120</strong>
+
+            </div>
+
+
+            <div class="menu-card">
+
+                <div class="food-icon">🍤</div>
+
+                <h3>Grilled Prawns</h3>
+
+                <p>
+                    Succulent prawns grilled with garlic,
+                    lemon and African spices.
+                </p>
+
+                <strong>R195</strong>
+
+            </div>
+
+
+            <div class="menu-card">
+
+                <div class="food-icon">🍰</div>
+
+                <h3>Malva Pudding</h3>
+
+                <p>
+                    Traditional South African dessert
+                    served with vanilla ice cream.
+                </p>
+
+                <strong>R75</strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section">
+
+        <div class="about-content">
+
+            <p class="small-title">
+                OUR STORY
+            </p>
+
+            <h2>
+                Food that brings
+                people together.
+            </h2>
+
+            <p>
+                Savanna Kitchen was created around one simple idea:
+                good food should bring people together.
+            </p>
+
+            <p>
+                From family dinners to celebrations with friends,
+                we create dishes inspired by the diverse flavours
+                and traditions of Africa.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESERVATION -->
+    <section id="reservation" class="reservation-section">
+
+        <div class="section-heading">
+
+            <p class="small-title">
+                RESERVATIONS
+            </p>
+
+            <h2>
+                Reserve your table.
+            </h2>
+
+        </div>
+
+
+        <form id="reservationForm">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Phone Number"
+                required
+            >
+
+            <input
+                type="date"
+                id="date"
+                required
+            >
+
+            <input
+                type="time"
+                id="time"
+                required
+            >
+
+            <select id="guests" required>
+
+                <option value="">
+                    Number of Guests
+                </option>
+
+                <option value="1">
+                    1 Guest
+                </option>
+
+                <option value="2">
+                    2 Guests
+                </option>
+
+                <option value="3">
+                    3 Guests
+                </option>
+
+                <option value="4">
+                    4 Guests
+                </option>
+
+                <option value="5">
+                    5 Guests
+                </option>
+
+                <option value="6">
+                    6+ Guests
+                </option>
+
+            </select>
+
+            <button type="submit">
+                Request Reservation
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+
+        <div>
+
+            <p class="small-title">
+                FIND US
+            </p>
+
+            <h2>
+                Come dine with us.
+            </h2>
+
+            <p>
+                123 Main Street<br>
+                Johannesburg, South Africa
+            </p>
+
+            <p>
+                Monday - Sunday<br>
+                11:00 - 22:00
+            </p>
+
+        </div>
+<script>const reservationForm =
+    document.getElementById("reservationForm");
+
+reservationForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value;
+
+    const phone =
+        document.getElementById("phone").value;
+
+    const date =
+        document.getElementById("date").value;
+
+    const time =
+        document.getElementById("time").value;
+
+    const guests =
+        document.getElementById("guests").value;
+
+
+    const message =
+        `Hello Savanna Kitchen!
+
+I would like to request a reservation.
+
+Name: ${name}
+Phone: ${phone}
+Date: ${date}
+Time: ${time}
+Guests: ${guests}`;
+
+    const whatsappNumber = "27821234567";
+
+    const whatsappURL =
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
+
+});</script>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="logo">
+            SAVANNA <span>KITCHEN</span>
+        </div>
+
+        <p>
+            © 2026 Savanna Kitchen. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- WHATSAPP -->
+    <a
+        href="https://wa.me/27821234567"
+        class="whatsapp"
+        target="_blank"
+    >
+        💬
+    </a>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
