@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Premium barbering and grooming services. Book your appointment today.">
+
+    <title>Elite Cuts | Premium Barber Shop</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0b0b;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* NAVIGATION */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 1px solid #222;
+}
+
+.nav-container {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #c9a227;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #c9a227;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.8)
+        ),
+        url("../images/hero.jpg") center/cover;
+}
+
+.hero-content {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding-top: 75px;
+}
+
+.eyebrow {
+    color: #c9a227;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.95;
+    margin-bottom: 25px;
+}
+
+.hero-content > p:not(.eyebrow) {
+    max-width: 600px;
+    color: #ddd;
+    font-size: 1.1rem;
+}
+
+
+/* BUTTONS */
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.primary {
+    background: #c9a227;
+    color: #000;
+}
+
+.primary:hover {
+    transform: translateY(-3px);
+    background: #e0ba38;
+}
+
+.secondary {
+    border: 1px solid #fff;
+}
+
+.secondary:hover {
+    background: white;
+    color: black;
+}
+
+
+/* SECTIONS */
+
+.section {
+    padding: 100px 0;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 60px;
+}
+
+.section-heading h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 15px;
+}
+
+
+/* SERVICES */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    background: #151515;
+    padding: 30px;
+    border: 1px solid #252525;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: #c9a227;
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #aaa;
+    margin-bottom: 25px;
+}
+
+.service-card strong {
+    color: #c9a227;
+    font-size: 1.3rem;
+}
+
+
+/* ABOUT */
+
+.about {
+    background: #111;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about-image img {
+    height: 600px;
+    object-fit: cover;
+}
+
+.about-content h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.about-content p {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+
+/* GALLERY */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery-grid img {
+    height: 400px;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.02);
+}
+
+
+/* BOOKING */
+
+.booking {
+    background: #111;
+}
+
+form {
+    max-width: 700px;
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 15px;
+    background: #1b1b1b;
+    color: white;
+    border: 1px solid #333;
+    font-size: 1rem;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #c9a227;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+
+/* CONTACT */
+
+.contact {
+    text-align: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.contact-grid h3 {
+    color: #c9a227;
+    margin-bottom: 10px;
+}
+
+.whatsapp {
+    display: inline-block;
+    background: #25d366;
+    color: white;
+    padding: 15px 30px;
+    font-weight: bold;
+}
+
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #222;
+    padding: 30px 0;
+    text-align: center;
+    color: #777;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #0b0b0b;
+
+        display: none;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        padding: 18px 5%;
+        border-bottom: 1px solid #222;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image img {
+        height: 400px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid img {
+        height: 450px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+
+
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="#" class="logo">
+                ELITE<span>CUTS</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle">
+                ☰
+            </button>
+
+            <nav id="nav-menu">
+
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#booking">Book</a>
+                <a href="#contact">Contact</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    JOHANNESBURG'S PREMIUM BARBER
+                </p>
+
+                <h1>
+                    LOOK SHARP.<br>
+                    FEEL SHARP.
+                </h1>
+
+                <p>
+                    Precision cuts, clean fades and professional
+                    grooming from barbers who take their craft seriously.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#booking" class="btn primary">
+                        Book Appointment
+                    </a>
+
+                    <a href="#services" class="btn secondary">
+                        View Services
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+        <section class="section" id="services">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">WHAT WE DO</p>
+
+                    <h2>
+                        OUR SERVICES
+                    </h2>
+
+                    <p>
+                        Professional cuts and grooming designed
+                        to keep you looking your best.
+                    </p>
+
+                </div>
+
+
+                <div class="services-grid">
+
+                    <article class="service-card">
+
+                        <h3>Classic Haircut</h3>
+
+                        <p>
+                            A clean, professional haircut tailored
+                            to your style.
+                        </p>
+
+                        <strong>R150</strong>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <h3>Skin Fade</h3>
+
+                        <p>
+                            A sharp fade with precise blending
+                            and finishing.
+                        </p>
+
+                        <strong>R180</strong>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <h3>Haircut + Beard</h3>
+
+                        <p>
+                            Full grooming package including haircut
+                            and beard shaping.
+                        </p>
+
+                        <strong>R220</strong>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <h3>Kids Cut</h3>
+
+                        <p>
+                            Clean and stylish cuts for younger clients.
+                        </p>
+
+                        <strong>R120</strong>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section class="section about" id="about">
+
+            <div class="container about-grid">
+
+                <div class="about-image">
+                    <img src="images/barber.jpg"
+                         alt="Professional barber cutting hair">
+                </div>
+
+                <div class="about-content">
+
+                    <p class="eyebrow">ABOUT US</p>
+
+                    <h2>
+                        MORE THAN JUST A HAIRCUT.
+                    </h2>
+
+                    <p>
+                        Elite Cuts is built around precision,
+                        consistency and great customer service.
+                    </p>
+
+                    <p>
+                        Whether you want a fresh fade, a classic
+                        cut or a complete grooming session,
+                        our barbers are here to make sure you
+                        leave looking your best.
+                    </p>
+
+                    <a href="#booking" class="btn primary">
+                        Book Your Chair
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GALLERY -->
+        <section class="section" id="gallery">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">OUR WORK</p>
+
+                    <h2>
+                        THE GALLERY
+                    </h2>
+
+                </div>
+
+
+                <div class="gallery-grid">
+
+                    <img src="images/haircut1.jpg"
+                         alt="Fresh fade haircut">
+
+                    <img src="images/haircut2.jpg"
+                         alt="Barber haircut">
+
+                    <img src="images/haircut3.jpg"
+                         alt="Professional men's haircut">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BOOKING -->
+        <section class="section booking" id="booking">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">RESERVE YOUR CHAIR</p>
+
+                    <h2>
+                        BOOK AN APPOINTMENT
+                    </h2>
+
+                    <p>
+                        Choose your service and preferred time.
+                    </p>
+
+                </div>
+
+
+                <form id="booking-form">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            required
+                            placeholder="John Doe">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            required
+                            placeholder="071 234 5678">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="service">
+                            Select Service
+                        </label>
+
+                        <select id="service" required>
+
+                            <option value="">
+                                Choose a service
+                            </option>
+
+                            <option value="Classic Haircut">
+                                Classic Haircut - R150
+                            </option>
+
+                            <option value="Skin Fade">
+                                Skin Fade - R180
+                            </option>
+
+                            <option value="Haircut + Beard">
+                                Haircut + Beard - R220
+                            </option>
+
+                            <option value="Kids Cut">
+                                Kids Cut - R120
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="date">
+                                Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="date"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="time">
+                                Time
+                            </label>
+
+                            <input
+                                type="time"
+                                id="time"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn primary full-width">
+
+                        Request Appointment
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+        <section class="section contact" id="contact">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">FIND US</p>
+
+                    <h2>
+                        COME THROUGH.
+                    </h2>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+                    <div>
+
+                        <h3>Location</h3>
+
+                        <p>
+                            123 Main Street<br>
+                            Johannesburg, South Africa
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>Opening Hours</h3>
+
+                        <p>
+                            Monday - Friday: 09:00 - 18:00<br>
+                            Saturday: 08:00 - 16:00<br>
+                            Sunday: Closed
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>Contact</h3>
+
+                        <p>
+                            071 234 5678
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="https://wa.me/27712345678"
+                    target="_blank"
+                    class="whatsapp">
+
+                    💬 WhatsApp Us
+
+                </a>
+
+            </div>
+<script>
+    const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
+
+menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
+
+
+const navLinks = document.querySelectorAll("nav a");
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+    });
+
+});
+
+
+const bookingForm = document.getElementById("booking-form");
+
+bookingForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const service = document.getElementById("service").value;
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+
+
+    const barberNumber = "27712345678";
+
+
+    const message =
+        `Hi Elite Cuts!%0A%0A` +
+        `I'd like to book an appointment.%0A%0A` +
+        `Name: ${name}%0A` +
+        `Phone: ${phone}%0A` +
+        `Service: ${service}%0A` +
+        `Date: ${date}%0A` +
+        `Time: ${time}`;
+
+
+    const whatsappURL =
+        `https://wa.me/${barberNumber}?text=${message}`;
+
+
+    window.open(whatsappURL, "_blank");
+
+});
+</script>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026 Elite Cuts. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
